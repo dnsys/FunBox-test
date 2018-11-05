@@ -9,14 +9,21 @@ class FeedList extends React.Component {
     render(){
         const items = [
             {
+                title: 'Нямушка',
+                subTitle: 'с фуа-гра',
                 imgUrl: './images/cote.png',
                 weight: '0,5'
             },
             {
+                title: 'Нямушка',
+                subTitle: 'с рыбой',
                 imgUrl: './images/cote.png',
                 weight: '2'
             },
             {
+                disabled: true,
+                title: 'Нямушка',
+                subTitle: 'с курой',
                 imgUrl: './images/cote.png',
                 weight: '5'
             }
