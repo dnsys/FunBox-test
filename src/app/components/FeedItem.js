@@ -3,6 +3,19 @@ import React from 'react'
 class FeedItem extends React.Component {
     constructor (props){
         super(props)
+
+        this.state = {
+            selected: false
+        }
+    }
+
+    select(){
+        console.log('element clicked')
+        if( !this.props.item.disabled ){
+            this.setState({
+                selected: !this.state.selected
+            })
+        }
     }
 
     render(){
@@ -15,7 +28,7 @@ class FeedItem extends React.Component {
             )
         });
         return(
-            <div className={`feed-item ${disabledClass}`}>
+            <div className={`feed-item ${disabledClass} ${this.state.selected ? 'selected' : ''}`} onClick={this.select.bind(this)}>
                 <div className="feed-item__inner">
                     <div className="feed-item__capture">
                         Сказочное заморское яство

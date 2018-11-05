@@ -1,4 +1,3 @@
-import './block-example';
 import './feed-list';
 import './feed-item';
 

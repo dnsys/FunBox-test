@@ -3,9 +3,12 @@
   border-radius: 8px
   padding: 4px
   position: relative
+  min-width: 320px
+  +media-480
+    min-width: 0
   +beveled-corners(#1698d9, 31.5px, 0, 0 , 0)
 
-  &:not(.disabled):hover
+  &:not(.disabled):not(.selected):hover
     cursor: pointer
     +beveled-corners(#2ea8e6, 31.5px, 0, 0 , 0)
 
@@ -17,6 +20,8 @@
     overflow: hidden
     padding: 16px 46px
     margin-bottom: 15px
+    +media-480
+      padding: 16px 26px
     +beveled-corners(#f2f2f2, 30px, 0, 0 , 0)
 
     .feed-item.disabled &
@@ -47,8 +52,14 @@
     .feed-item.disabled &
       background-color: #b3b3b3
 
-    .feed-item:not(.disabled):hover &
+    .feed-item:not(.disabled):not(.selected):hover &
       background-color: #2ea8e6
+
+    .feed-item.selected &
+      background-color: #d91667
+
+    .feed-item.selected:hover &
+      background-color: #e62e7a
 
   &__cat
     position: absolute
@@ -78,3 +89,9 @@
   &.disabled
     pointer-events: none
     +beveled-corners(#b3b3b3, 31.5px, 0, 0 , 0)
+
+  &.selected
+    +beveled-corners(#d91667, 31.5px, 0, 0 , 0)
+    &:hover
+      cursor: pointer
+      +beveled-corners(#e62e7a, 31.5px, 0, 0 , 0)
