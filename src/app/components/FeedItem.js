@@ -8,6 +8,12 @@ class FeedItem extends React.Component {
     render(){
         const itemFeed = this.props.item;
         const disabledClass = itemFeed.disabled ? 'disabled' : '';
+        const feedAdditions = itemFeed.additions.map((item, index) => {
+            console.log(item)
+            return(
+                <li key={index} dangerouslySetInnerHTML={{__html: item}} /> //todo - need to find a way to solve the issue (insert html)
+            )
+        });
         return(
             <div className={`feed-item ${disabledClass}`}>
                 <div className="feed-item__inner">
@@ -21,8 +27,7 @@ class FeedItem extends React.Component {
                         { itemFeed.subTitle }
                     </div>
                     <ul className="feed-item__list">
-                        <li><strong>10</strong> порций</li>
-                        <li>мышь в подарок</li>
+                        { feedAdditions }
                     </ul>
                     <div className="feed-item__weight">
                         <span>{ itemFeed.weight }</span>кг
