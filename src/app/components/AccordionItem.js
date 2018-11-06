@@ -1,8 +1,8 @@
 import React from 'react';
 
 class AccordionItem extends React.Component{
-    constructor (){
-        super();
+    constructor (props){
+        super(props);
 
         this.state = {
             isShowAnswer: false
@@ -10,6 +10,8 @@ class AccordionItem extends React.Component{
     }
 
     showAnswer(){
+        this.props.closeHint();
+
         this.setState({
             isShowAnswer: !this.state.isShowAnswer
         })
@@ -27,7 +29,7 @@ class AccordionItem extends React.Component{
 
         return(
             <div className="accordion-item">
-                <div className="accordion-item__header" onClick={this.showAnswer.bind(this)}>
+                <div className={`accordion-item__header ${ this.state.isShowAnswer ? 'active' : '' }`} onClick={this.showAnswer.bind(this)}>
                     { accordionItem.question }
                 </div>
                 { accordionAnswerBody }

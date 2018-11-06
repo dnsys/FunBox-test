@@ -1,9 +1,20 @@
 import React from 'react';
 import AccordionItem from './AccordionItem';
+import hintClickImg from '../../images/click_here.png';
 
 class AccordionList extends React.Component{
     constructor (){
         super();
+
+        this.state = {
+            isShowHint: true
+        }
+    }
+
+    closeHint(){
+        this.setState({
+            isShowHint: false
+        })
     }
 
     render(){
@@ -26,11 +37,11 @@ class AccordionList extends React.Component{
                 'верстальщиков, которые могут даже оценить структуру шаблона. Но, до сих пор, эти редкие экземпляры не встречались в моей практике.'
             },
             {
-                question: '||-||-|| верстальшика',
+                question: '||-||-|| с точки зрения верстальщика',
                 answer: 'Верстальщик же может оценить структуру проекта, структуру файлов, исползование инструментов, валидность.'
             },
             {
-                question: '||-||-|| клиентского программиста, серверного программиста',
+                question: '||-||-|| с точки зрения клиентского программиста, серверного программиста',
                 answer: 'Из моей практики могу сказать, что как клиентского, так и серверного программиста можно отнести к одной категории.' +
                 'Для программистов, обычно, требуется валидная, удобная, структурированная и унифицированная верстка. А так же используемые инструменты.'
             },
@@ -96,12 +107,20 @@ class AccordionList extends React.Component{
         ]
         const loopAnswers = questionAnswer.map((item, index)=>{
             return(
-                <AccordionItem item={item} key={index+1} />
+                <AccordionItem item={item} key={index+1} closeHint={this.closeHint.bind(this)}/>
             )
         })
+        let hintWindow
+        if(this.state.isShowHint){
+            hintWindow =
+                <div className="hint-click">
+                    <img src={hintClickImg} alt=""/>
+                </div>
+        }
         return(
             <div className="accordion-list">
                 { loopAnswers }
+                { hintWindow }
             </div>
         );
     }

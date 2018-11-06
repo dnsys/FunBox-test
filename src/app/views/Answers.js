@@ -10,6 +10,7 @@ export default class Answers extends React.Component{
     }
 
     render(){
+
         return(
             <div className="answer-page">
                 <Header/>
@@ -18,7 +19,7 @@ export default class Answers extends React.Component{
                 </div>
                 <div className="cat">
                     <div className="cat__cloud">
-                        Choose me!
+                        Choose me, please!
                     </div>
                     <img src={ImageCat} alt="cat"/>
                 </div>
