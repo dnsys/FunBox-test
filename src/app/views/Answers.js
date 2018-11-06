@@ -15,6 +15,7 @@ export default class Answers extends React.Component{
             <div className="answer-page">
                 <Header/>
                 <div className={'container'}>
+                    <div className="answer-page__title">Теоретические вопросы</div>
                     <AccordionList />
                 </div>
                 <div className="cat">

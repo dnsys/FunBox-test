@@ -2,6 +2,15 @@
   position: relative
   height: 100%
 
+  &__title
+    text-align: center
+    font-size: 36px
+    margin-bottom: 30px
+    font-family: 'Exo2', sans-serif
+
+  +media-640
+    padding-bottom: 200px
+
 .cat
   position: fixed
   bottom: 0
@@ -31,11 +40,20 @@
     padding-top: 70px
     .cat:hover &
       opacity: 1
+    +media-480
+      left: 0
+  +media-480
+    right: 0
 
 .hint-click
   position: absolute
   width: 200px
-  top: 75px
+  top: 50px
   left: 100%
   img
     max-width: 100%
+  +media-1024
+    left: auto
+    right: 0
+  +media-640
+    display: none
