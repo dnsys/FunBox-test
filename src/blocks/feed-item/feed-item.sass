@@ -1,17 +1,5 @@
 .feed-item
-  height: 480px
-  border-radius: 8px
-  padding: 4px
   position: relative
-  min-width: 320px
-  +media-480
-    min-width: 0
-  +beveled-corners(#1698d9, 31.5px, 0, 0 , 0)
-
-  &:not(.disabled):not(.selected):hover
-    cursor: pointer
-    +beveled-corners(#2ea8e6, 31.5px, 0, 0 , 0)
-
   &__inner
     position: relative
     width: 100%
@@ -52,13 +40,13 @@
     .feed-item.disabled &
       background-color: #b3b3b3
 
-    .feed-item:not(.disabled):not(.selected):hover &
-      background-color: #2ea8e6
-
     .feed-item.selected &
       background-color: #d91667
 
-    .feed-item.selected:not(.no-hover):hover &
+    .feed-item:not(.disabled):not(.selected) .feed-item__wrapper:hover &
+      background-color: #2ea8e6
+
+    .feed-item.selected .feed-item__wrapper:not(.no-hover):hover &
       background-color: #e62e7a
 
   &__cat
@@ -86,12 +74,35 @@
     line-height: 16px
     color: #666666
 
-  &.disabled
-    pointer-events: none
-    +beveled-corners(#b3b3b3, 31.5px, 0, 0 , 0)
+  &__description
+    color: #ffffff
+    font-size: 13px
+    line-height: 16px
+    text-align: center
+    margin-top: 15px
 
-  &.selected
-    +beveled-corners(#d91667, 31.5px, 0, 0 , 0)
-    &:not(.no-hover):hover
+  &__wrapper
+    padding: 4px
+    border-radius: 8px
+    height: 480px
+    position: relative
+    min-width: 320px
+    +media-480
+      min-width: 0
+    +beveled-corners(#1698d9, 31.5px, 0, 0 , 0)
+
+    .feed-item.disabled &
+      pointer-events: none
+      +beveled-corners(#b3b3b3, 31.5px, 0, 0 , 0)
+
+    .feed-item.selected &
+      +beveled-corners(#d91667, 31.5px, 0, 0 , 0)
+
+    &:hover
       cursor: pointer
-      +beveled-corners(#e62e7a, 31.5px, 0, 0 , 0)
+      .feed-item:not(.disabled):not(.selected) &
+        +beveled-corners(#2ea8e6, 31.5px, 0, 0 , 0)
+
+    &:not(.no-hover):hover
+      .feed-item.selected &
+        +beveled-corners(#e62e7a, 31.5px, 0, 0 , 0)

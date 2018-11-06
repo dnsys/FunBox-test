@@ -9,7 +9,8 @@ class FeedItem extends React.Component {
         }
     }
 
-    select(){
+    select(event){
+        event.stopPropagation();
         if( !this.props.item.disabled ){
             this.setState({
                 selected: !this.state.selected
@@ -18,7 +19,7 @@ class FeedItem extends React.Component {
     }
 
     hoverOn(event){
-        event.stopPropagation()
+        event.stopPropagation();
         let element = event.currentTarget
         if(element.classList.contains("no-hover")){
             element.classList.remove("no-hover")
@@ -34,24 +35,29 @@ class FeedItem extends React.Component {
             )
         });
         return(
-            <div className={`feed-item ${disabledClass} ${this.state.selected ? 'selected no-hover' : ''}`} onClick={this.select.bind(this)} onMouseLeave={this.hoverOn.bind(this)}>
-                <div className="feed-item__inner">
-                    <div className="feed-item__capture">
-                        Сказочное заморское яство
+            <div className={`feed-item ${disabledClass} ${this.state.selected ? 'selected' : ''}`} onClick={this.select.bind(this)}>
+                <div className={`feed-item__wrapper ${this.state.selected ? 'no-hover' : ''}`} onMouseLeave={this.hoverOn.bind(this)}>
+                    <div className="feed-item__inner">
+                        <div className="feed-item__capture">
+                            Сказочное заморское яство
+                        </div>
+                        <div className="feed-item__title">
+                            { itemFeed.title }
+                        </div>
+                        <div className="feed-item__sub-title">
+                            { itemFeed.subTitle }
+                        </div>
+                        <ul className="feed-item__list">
+                            { feedAdditions }
+                        </ul>
+                        <div className="feed-item__weight">
+                            <span>{ itemFeed.weight }</span>кг
+                        </div>
+                        <img src={itemFeed.imgUrl} className="feed-item__cat" alt=""/>
                     </div>
-                    <div className="feed-item__title">
-                        { itemFeed.title }
-                    </div>
-                    <div className="feed-item__sub-title">
-                        { itemFeed.subTitle }
-                    </div>
-                    <ul className="feed-item__list">
-                        { feedAdditions }
-                    </ul>
-                    <div className="feed-item__weight">
-                        <span>{ itemFeed.weight }</span>кг
-                    </div>
-                    <img src={itemFeed.imgUrl} className="feed-item__cat" alt=""/>
+                </div>
+                <div className="feed-item__description">
+                    Чего сидишь? Порадуй котэ, <a href="#" onClick={this.select.bind(this)}>купи</a>
                 </div>
             </div>
         )
