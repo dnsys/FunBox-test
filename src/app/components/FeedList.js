@@ -16,7 +16,8 @@ class FeedList extends React.Component {
                 additions: [
                     '<strong>10</strong> пораций',
                     'мышь в подарок'
-                ]
+                ],
+                description: 'Чего сидишь? Порадуй котэ, <a href="#" class="feed-item-select">купи</a>'
             },
             {
                 title: 'Нямушка',
@@ -26,7 +27,8 @@ class FeedList extends React.Component {
                 additions: [
                     '<strong>40</strong> пораций',
                     '<strong>2</strong> мышы в подарок'
-                ]
+                ],
+                description: 'Головы щучьи с чесноком да свежайшая сёмгушка.'
             },
             {
                 disabled: true,
@@ -38,7 +40,8 @@ class FeedList extends React.Component {
                     '<strong>100</strong> пораций',
                     '<strong>5</strong> мышей в подарок',
                     'заказчик доволен'
-                ]
+                ],
+                description: 'Печалька, с курой закончился.'
             }
         ]
         const loopItems = items.map((item, index) => {

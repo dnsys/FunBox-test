@@ -10,7 +10,7 @@ class FeedItem extends React.Component {
     }
 
     select(event){
-        event.stopPropagation();
+        event.preventDefault();
         if( !this.props.item.disabled ){
             this.setState({
                 selected: !this.state.selected
@@ -24,6 +24,13 @@ class FeedItem extends React.Component {
         if(element.classList.contains("no-hover")){
             element.classList.remove("no-hover")
         }
+    }
+
+    componentDidMount(){
+        let selectLink = document.getElementsByClassName('feed-item-select')[0]
+        selectLink.addEventListener('click', () => {
+            this.hoverOn();
+        })
     }
 
     render(){
@@ -57,7 +64,8 @@ class FeedItem extends React.Component {
                     </div>
                 </div>
                 <div className="feed-item__description">
-                    Чего сидишь? Порадуй котэ, <a href="#" onClick={this.select.bind(this)}>купи</a>
+                    {/*Чего сидишь? Порадуй котэ, <a href="#" onClick={this.select.bind(this)}>купи</a>*/}
+                    { <span dangerouslySetInnerHTML={{__html: itemFeed.description}} />}
                 </div>
             </div>
         )
