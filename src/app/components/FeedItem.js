@@ -10,7 +10,6 @@ class FeedItem extends React.Component {
     }
 
     select(){
-        console.log('element clicked')
         if( !this.props.item.disabled ){
             this.setState({
                 selected: !this.state.selected
@@ -18,17 +17,24 @@ class FeedItem extends React.Component {
         }
     }
 
+    hoverOn(event){
+        event.stopPropagation()
+        let element = event.currentTarget
+        if(element.classList.contains("no-hover")){
+            element.classList.remove("no-hover")
+        }
+    }
+
     render(){
         const itemFeed = this.props.item;
         const disabledClass = itemFeed.disabled ? 'disabled' : '';
         const feedAdditions = itemFeed.additions.map((item, index) => {
-            console.log(item)
             return(
                 <li key={index} dangerouslySetInnerHTML={{__html: item}} /> //todo - need to find a way to solve the issue (insert html)
             )
         });
         return(
-            <div className={`feed-item ${disabledClass} ${this.state.selected ? 'selected' : ''}`} onClick={this.select.bind(this)}>
+            <div className={`feed-item ${disabledClass} ${this.state.selected ? 'selected no-hover' : ''}`} onClick={this.select.bind(this)} onMouseLeave={this.hoverOn.bind(this)}>
                 <div className="feed-item__inner">
                     <div className="feed-item__capture">
                         Сказочное заморское яство

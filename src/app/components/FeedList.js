@@ -43,7 +43,7 @@ class FeedList extends React.Component {
         ]
         const loopItems = items.map((item, index) => {
             return(
-                <div key={index} className={'feed-list__item'}>
+                <div key={index+1} className={'feed-list__item'}>
                     <FeedItem item={item} />
                 </div>
             )

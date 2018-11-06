@@ -58,7 +58,7 @@
     .feed-item.selected &
       background-color: #d91667
 
-    .feed-item.selected:hover &
+    .feed-item.selected:not(.no-hover):hover &
       background-color: #e62e7a
 
   &__cat
@@ -92,6 +92,6 @@
 
   &.selected
     +beveled-corners(#d91667, 31.5px, 0, 0 , 0)
-    &:hover
+    &:not(.no-hover):hover
       cursor: pointer
       +beveled-corners(#e62e7a, 31.5px, 0, 0 , 0)
