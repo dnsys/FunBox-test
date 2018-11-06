@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from '../components/Header';
 import AccordionList from '../components/AccordionList';
+import ImageCat from '../../images/cote.png';
+import './Answers/index.sass';
 
 export default class Answers extends React.Component{
     constructor (){
@@ -9,10 +11,16 @@ export default class Answers extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="answer-page">
                 <Header/>
                 <div className={'container'}>
                     <AccordionList />
+                </div>
+                <div className="cat">
+                    <div className="cat__cloud">
+                        Choose me!
+                    </div>
+                    <img src={ImageCat} alt="cat"/>
                 </div>
             </div>
         )

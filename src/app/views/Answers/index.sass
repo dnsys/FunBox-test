@@ -1,0 +1,33 @@
+.answer-page
+  position: relative
+  height: 100%
+
+.cat
+  position: fixed
+  bottom: 0
+  right: 40px
+  transform: translateY(150px)
+  transition: transform .3s ease-in-out
+  line-height: 0
+  font-size: 0
+  &:hover
+    cursor: pointer
+    transform: translateY(0)
+  &__cloud
+    font-size: 20px
+    position: absolute
+    top: -175px
+    left: -45px
+    width: 230px
+    height: 219px
+    background:
+      image: url('./cloud.png')
+      size: cover
+      repeat: no-repeat
+    opacity: 0
+    transition: opacity .3s ease-in-out
+    transition-delay: .4s
+    text-align: center
+    padding-top: 70px
+    .cat:hover &
+      opacity: 1
