@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from '../components/Header';
+import AccordionList from '../components/AccordionList';
 
 export default class Answers extends React.Component{
     constructor (){
@@ -7,8 +9,11 @@ export default class Answers extends React.Component{
 
     render(){
         return(
-            <div className={'container'}>
-                Test answers page
+            <div>
+                <Header/>
+                <div className={'container'}>
+                    <AccordionList />
+                </div>
             </div>
         )
     }

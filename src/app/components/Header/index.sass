@@ -1,0 +1,43 @@
+.header
+  padding: 30px 50px
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15)
+  margin-bottom: 50px
+
+  &__back-link
+    color: #1591d0
+    text-decoration: none
+    position: relative
+    display: inline-block
+    i
+      position: relative
+      display: inline-block
+      width: 10px
+      height: 15px
+      top: 2px
+      &:before
+        content: ''
+        display: block
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        height: 1px
+        width: 10px
+        background-color: #1591d0
+      &:after
+        content: ''
+        display: block
+        position: absolute
+        top: 50%
+        transform: translateY(-50%) rotate(135deg)
+        border: solid #1591d0
+        border-width: 0 1px 1px 0
+        padding: 3px
+    &:hover
+      i
+        animation: shake .8s ease-in-out infinite
+
+@keyframes shake
+  from
+    transform: translate(0)
+  to
+    transform: translateX(-10px)

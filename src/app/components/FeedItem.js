@@ -19,7 +19,6 @@ class FeedItem extends React.Component {
     }
 
     hoverOn(event){
-        event.stopPropagation();
         let element = event.currentTarget
         if(element.classList.contains("no-hover")){
             element.classList.remove("no-hover")
