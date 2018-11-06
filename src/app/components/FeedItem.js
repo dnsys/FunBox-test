@@ -63,7 +63,6 @@ class FeedItem extends React.Component {
                     </div>
                 </div>
                 <div className="feed-item__description">
-                    {/*Чего сидишь? Порадуй котэ, <a href="#" onClick={this.select.bind(this)}>купи</a>*/}
                     { <span dangerouslySetInnerHTML={{__html: itemFeed.description}} />}
                 </div>
             </div>

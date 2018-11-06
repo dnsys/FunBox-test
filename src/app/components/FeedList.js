@@ -1,5 +1,6 @@
 import React from 'react';
 import FeedItem from './FeedItem';
+import imgCote from '../../images/cote.png';
 
 class FeedList extends React.Component {
     constructor (){
@@ -11,7 +12,7 @@ class FeedList extends React.Component {
             {
                 title: 'Нямушка',
                 subTitle: 'с фуа-гра',
-                imgUrl: './images/cote.png',
+                imgUrl: imgCote,
                 weight: '0,5',
                 additions: [
                     '<strong>10</strong> пораций',
@@ -22,7 +23,7 @@ class FeedList extends React.Component {
             {
                 title: 'Нямушка',
                 subTitle: 'с рыбой',
-                imgUrl: './images/cote.png',
+                imgUrl: imgCote,
                 weight: '2',
                 additions: [
                     '<strong>40</strong> пораций',
@@ -34,7 +35,7 @@ class FeedList extends React.Component {
                 disabled: true,
                 title: 'Нямушка',
                 subTitle: 'с курой',
-                imgUrl: './images/cote.png',
+                imgUrl: imgCote,
                 weight: '5',
                 additions: [
                     '<strong>100</strong> пораций',
